@@ -1,0 +1,161 @@
+/* PAGE DE CONNEXION/INSCRIPTION */
+
+#connexion_body {
+	background-color: #FAFAFA;
+	background-image: url("gto.jpg");
+}
+
+#inscription {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+     width: 350px;
+     height: 500px;
+     background-color: #FFFFFF;
+     border: 1px solid lightgrey;
+     border-radius: 10px;
+     text-align: center;
+}
+
+#connexion {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+     width: 350px;
+     height: 350px;
+     background-color: #FFFFFF;
+     border: 1px solid lightgrey;
+     border-radius: 10px;
+     text-align: center;
+}
+
+#inscription_h2 {
+	font-size: 17px;
+    line-height: 20px;
+    margin: 0 40px 10px;
+    text-align: center;
+    color: #999;
+    margin-top: -25px;
+}
+
+.camagru_h1 {
+	font-family: cursive;
+	font-size:40px;
+}
+
+#propre {
+	margin-top: 40px;
+}
+
+.info_form {
+	margin: 0 40px 6px;
+	position: relative;
+}
+
+.info_register {
+	background: 0 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    font-size: 14px;
+    padding: 9px 8px 7px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+#button {
+	margin: 10px;
+	width: 40%;
+}
+
+#attention {
+	color: #999;
+	margin: 10px 60px;
+	padding-top: 20px;
+}
+
+#separation {
+	-webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    margin: 10px 40px 18px;
+}
+
+.separation_line {
+	-webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #c7c7c7;
+    height: 1px;
+    position: relative;
+    top: .45em;
+}
+
+#already_register {
+	padding-top: 10px;
+}
+
+/* PAGE ESPACE MEMBRE */
+
+#body_member_space {
+	background-color: #FAFAFA;
+	font-family: cursive;
+}
+
+#header {
+	height: 150px;
+	width: 95%;
+	background-color:  #FFFFFF;
+		border: 1px solid lightgrey;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#middle {
+	height: 750px;
+	width: 95%;
+	background-color: #FAFAFA;
+	margin-left: 2.5%;
+	margin-top: 75px;
+}
+
+#main {
+	width: 75%;
+	height: 750px;
+	background-color: #FFFFFF;
+		border: 1px solid lightgrey;
+	float: left;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#side {
+	height: 750px;
+	width: 20%;
+	background-color: #FFFFFF;
+		border: 1px solid lightgrey;
+	float: right;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#footer {
+	height: 100px;
+	width: 95%;
+	background-color: #FFFFFF;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 75px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	text-align: center;
+}
