@@ -1,40 +1,37 @@
 <?php
 class member_manager
 {
-	private $db;
+	private $_db;
 	/**
 	* Attribut contenant l'instance représentant la BDD.
 	* @type PDO
 	*/
 	public function __construct(PDO $db)
 	{
-		$this->db = $db;
+		$this->_db = $db;
 	}
 
 	public function add(member $member)
 	{
 		print_r($member);
-		$req = $this->db->prepare('INSERT INTO membres(email, pseudo, password/*, cle, actif*/) VALUES(:email, :pseudo, :password/*, :cle, :actif*/');
-
-		print_r($req);
-		$req->bindValue(':email', $member->email());
-				print_r($req);
-		$req->bindValue(':pseudo', $member->pseudo());
-		$req->bindValue(':password', $member->password());
-	//	$req->bindValue(':cle', $member->cle());
-	//	$req->bindValue(':actif', $member->actif());
-
-		$req->execute();
+		$req = $this->_db->prepare('INSERT INTO membres(email, pseudo, password, cle, actif)
+									VALUES(:email, :pseudo, :password, :cle, :actif)');
+		$req->execute(array(
+			'email' => $member->email(),
+			'pseudo' => $member->pseudo(),
+			'password' => $member->password(),
+			'cle' => $member->cle(),
+			'actif' => $member->actif()));
 	}
 
 	public function count()
 	{
-		return $this->db->query('SELECT COUNT(*) FROM membres');
+		return $this->_db->query('SELECT COUNT(*) FROM membres');
 	}
 
 	public function delete($id)
 	{
-		$this->db->exec('DELETE FROM membres WHERE id = '.(int) $id);
+		$this->_db->exec('DELETE FROM membres WHERE id = '.(int) $id);// pas proteger
 	}
 
 }

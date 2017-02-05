@@ -6,7 +6,7 @@
 		require('config/database.php');
 		require('member_class.php');
 		require('member_manager_class.php');
-		$db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+		$db = new PDO('mysql:host=localhost;dbname=camagru;charset=utf8', $DB_USER, $DB_PASSWORD);
 		$member = new member();
 		if ($member->set_email(htmlspecialchars($_POST['email'])) == 0)
 		{
@@ -22,21 +22,17 @@
 		}
 		if (empty($errors))
 		{
+			$member->set_cle(md5(microtime(TRUE)*100000));
+			$member->set_actif(0);
 			$member_manager = new member_manager($db);
 			$member_manager->add($member);
-			echo "inscription reussi";
 		}
 	}
 	else
 		echo 'a';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Inscription</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body id="connexion_body">
+<?php include "layout/header.php"; ?>
+<br/><br/><br/><br/><br/><br/>
 <pre>
 	<?php if (!empty($errors)){print_r($errors);} ?>
 </pre>
@@ -46,13 +42,13 @@
 		<h2 id="inscription_h2">Inscrivez-vous pour voir les montages de vos "amis".</h2>
 		<div id="propre">
 			<div class="info_form">
-				<input type="text" class="info_register" name="email" placeholder="Email">
+				<input type="text" class="info_register" name="email" placeholder="Email" required>
 			</div>
 			<div class="info_form">
-				<input type="text" class="info_register" name="login" placeholder="Pseudo">
+				<input type="text" class="info_register" name="login" placeholder="Pseudo" required>
 			</div>
 			<div class="info_form">
-				<input type="password" class="info_register" name="passwd" placeholder="Password">
+				<input type="password" class="info_register" name="passwd" placeholder="Password" required>
 			</div>
 		</div>
 		<input id="button" type="submit" name="register" value="INSCRIPTION">

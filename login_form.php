@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body id="connexion_body">
+<?php include "layout/header.php"; ?>
 <div id="connexion">
 	<h1 class="camagru_h1">Camagru</h1>
 	<p style="margin-top: -10px; margin-bottom: -30px;"><a href="forget_pass.php" style="text-decoration: none; color: red;">Mot de passe oublié?</a></p>

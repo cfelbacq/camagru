@@ -73,7 +73,6 @@ class member
 
 	public function set_cle($new_cle)
 	{
-		if (is_string($new_cle))
 			$this->_cle = $new_cle;
 	}
 

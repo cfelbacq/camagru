@@ -5,6 +5,42 @@
 	background-image: url("gto.jpg");
 }
 
+.container {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.header {
+	background: #FFFFFF;
+	width: 100%;
+	top: 0;
+	position: fixed;
+	border-bottom: 1px solid lightgrey;
+}
+
+.logo {
+	float: left;
+	font: "Arial";
+	font-size: 15px;
+}
+
+.ah{
+	text-decoration: none;
+	color: #000000;
+}
+
+.nav{
+	float: right;
+	margin-top: 15px;
+}
+
+.lih{
+	list-style: none;
+	float; left;
+	margin-left: 15px;
+	display: inline;
+}
+
 #inscription {
 	position: absolute;
 	margin: auto;
