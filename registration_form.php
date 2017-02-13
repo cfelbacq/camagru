@@ -16,7 +16,7 @@
 		{
 			$errors['pseudo'] = "Votre pseudo n'est pas valide";
 		}
-		if ($member->set_password(htmlspecialchars($_POST['passwd'])) == 0)
+		if ($member->set_password(htmlspecialchars(hash('whirlpool', $_POST['passwd']))) == 0)
 		{
 			$errors['password'] = "Votre mot de passe n'est pas valide";
 		}
@@ -25,13 +25,19 @@
 			$member->set_cle(md5(microtime(TRUE)*100000));
 			$member->set_actif(0);
 			$member_manager = new member_manager($db);
-			$member_manager->add($member);
+			if ($member_manager->is_exist($member) == 0)
+			{
+				$member_manager->add($member);
+				$member_manager->mail($member);
+			}
+			else
+				$errors['compte'] = "Pseudo existant";
 		}
 	}
 	else
 		echo 'a';
 ?>
-<?php include "layout/header.php"; ?>
+<?php include "layout/headers.php"; ?>
 <br/><br/><br/><br/><br/><br/>
 <pre>
 	<?php if (!empty($errors)){print_r($errors);} ?>
