@@ -87,7 +87,7 @@ class member_manager
 Pour activer votre compte, veuillez cliquer sur le lien ci dessous
 ou copier/coller dans votre navigateur internet.
  
-http://localhost/camagru/login_form.php?log='.urlencode($member->pseudo()).'&cle='.urlencode($member->cle()).'
+http://localhost:8080/camagru/login_form.php?log='.urlencode($member->pseudo()).'&cle='.urlencode($member->cle()).'
  
  
 ---------------

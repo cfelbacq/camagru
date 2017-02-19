@@ -74,7 +74,7 @@ class member
 
 	public function set_actif($new_actif)
 	{
-		if ($new_actif === 1 || $new_actif === 0)
+		if ($new_actif == 1 || $new_actif == 0)
 		{
 		//	echo $new_actif;
 			$this->_actif = $new_actif;

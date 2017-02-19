@@ -1,23 +1,29 @@
 <?php
   session_start();
+  require('config/database.php');
+  require('member_class.php');
+  require('member_manager_class.php');
   if ($_SESSION['loggued_on_user'] == 0)
     header("location: index.php");
+ // echo $_SESSION['id_user'];
+ // print_r($member);
+  if ($_REQUEST['imgBase64'])
+  {
     $img = !empty($_REQUEST['imgBase64']) ? $_REQUEST['imgBase64'] : die("No image was posted");
-  $imgName = $_REQUEST['imgName'];
-  $img = str_replace('data:image/png;base64,', '', $img);
-  $img = str_replace(' ', '+', $img);
-  $fileData = base64_decode($img);
-  //saving
-  file_put_contents($imgName, $fileData);
-
+   // $imgName = sha1(microtime());
+    //$imgName = $imgName.'.png';
+    $imgName = "test.png";
+    
+    $img = str_replace('data:image/png;base64,', '', $img);
+    $img = str_replace(' ', '+', $img);
+    $fileData = base64_decode($img);
+    file_put_contents("img/".$imgName, $fileData);
+    header("location: test.php");
   }
+  else
+  {
+  include "layout/headers.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
 <video id="video"></video>
 <button id="startbutton">Prendre une photo</button>
 <canvas id="canvas"></canvas>
@@ -98,3 +104,4 @@
 </script>
 </body>
 </html>
+<?php } ?>

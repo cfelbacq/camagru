@@ -14,16 +14,9 @@
 		$row = $member_manager->login($_POST['pseudo'], $_POST['passwd']);
 		//print_r($row);
 		if ($row != 0)
-		{
-			$member = new member();
-			$member->set_id($row['id']);
-			$member->set_email($row['email']);
-			$member->set_pseudo($row['pseudo']);
-			$member->set_password($row['password']);
-			$member->set_cle($row['cle']);
-			$member->set_actif($row['actif']);
-			$_SESSION['member'] = $member;
+		{ 
 			$_SESSION['loggued_on_user'] = 1;
+			$_SESSION['id_user'] = $row['id'];
 			header('location: member_space.php');
 		}
 	}
