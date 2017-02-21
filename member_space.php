@@ -24,6 +24,8 @@
   {
   include "layout/headers.php";
 ?>
+<div id="middle">
+<div id="main">
 <video id="video"></video>
 <button id="startbutton">Prendre une photo</button>
 <canvas id="canvas"></canvas>
@@ -102,6 +104,13 @@
 
 })();
 </script>
+</div>
+<div id="side">
+  <?php
+  ?>
+</div>
+</div>
+<div id="footer"></div>
 </body>
 </html>
 <?php } ?>

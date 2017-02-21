@@ -1,5 +1,11 @@
 <?php
 	print_r($_POST);
+	if ($_SESSION['loggued_on_user'] == 1)
+	{
+		echo "vous êtes connecté.";
+	}
+	else
+	{
 	if(!empty($_POST))
 	{
 		$errors = array();
@@ -67,3 +73,4 @@
 </div>
 </body>
 </html>
+<?php }?>

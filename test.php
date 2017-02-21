@@ -1,9 +1,9 @@
 <?php
 	merge();
-
-	function redimension($img)
+/*
+	function redimension()
 	{
-		$source = imagecreatefromjpeg("image_to_merge".$img); // La photo est la source
+		$source = imagecreatefrompng("image_to_merge/"."fleur.png"); // La photo est la source
 	$destination = imagecreatetruecolor(200, 150); // On crée la miniature vide
 
 	// Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
@@ -11,35 +11,35 @@
 	$hauteur_source = imagesy($source);
 	$largeur_destination = imagesx($destination);
 	$hauteur_destination = imagesy($destination);
-
 	// On crée la miniature
 	imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
-
+	//	imagealphablending($destination, true);
+//imagesavealpha($destination, true);
 	// On enregistre la miniature sous le nom "mini_couchersoleil.jpg"
-	file_put_contents("image_to_merge"."$img", $destination);
+	return ($destination);
 	}
-
+*/
 	function merge()
 	{
-	$img = "masque.jpg";
-	redimension($img);
-$src = imagecreatefromjpeg("image_to_merge/masque.jpg");
-$dest = imagecreatefrompng("img/test.png");
-$largeur_src = imagesx($src);
-$hauteur_src = imagesy($src);
-$largeur_dest = imagesx($dest);
-$hauteur_dest = imagesy($dest);
+		$src = imagecreatefrompng("image_to_merge/branch.png");
+		$dest = imagecreatefrompng("img/test.png");
+		$largeur_src = imagesx($src);
+		$hauteur_src = imagesy($src);
+		$largeur_dest = imagesx($dest);
+		$hauteur_dest = imagesy($dest);
 
-$dest_x = ($largeur_dest - $largeur_src);
-$dest_y = ($hauteur_dest - $hauteur_src);
+		$dest_x = ($largeur_dest - $largeur_src) / 2;
+		$dest_y = ($hauteur_dest - $hauteur_src) / 2;
 
-//imagealphablending($dest, false);
-//imagesavealpha($dest, true);
+//$black = imagecolorallocate($src, 0, 0, 0);
+//imagecolortransparent($dest, $black);
 
-imagecopymerge($dest, $src, $dest_x, $dest_y, 0, 0, $largeur_src, $hauteur_src, 100);
+imagecopy($dest, $src, $dest_x, $dest_y, 0, 0, $largeur_src, $hauteur_src);
 
 header('Content-Type: image/png');
 imagepng($dest);
+
+file_put_contents("image_merge.png" ,$dest);
 
 imagedestroy($dest);
 imagedestroy($src);
