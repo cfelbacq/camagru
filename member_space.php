@@ -18,6 +18,7 @@
     <script type="text/javascript" src="webcam.js"></script>
   </div>
   <div id="side">
+    <img src="test.png">
   </div>
 </div>
 <div id="footer"></div>

@@ -1,6 +1,5 @@
 <?
-	print_r($_POST);
-if ($_POST['data'])
+	if ($_POST['data'])
   {
     $img = !empty($_POST['data']) ? $_POST['data'] : die("No image was posted");
     $img = str_replace('data:image/png;base64,', '', $img);
@@ -30,7 +29,7 @@ function merge($imgName)
 	//imagecolortransparent($dest, $black);
 
 	imagecopy($dest, $src, $dest_x, $dest_y, 0, 0, $largeur_src, $hauteur_src);	
-	echo $dest;
+	imagepng($dest, "test.png", 0);
 
 	imagedestroy($dest);
 	imagedestroy($src);
