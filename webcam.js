@@ -4,7 +4,6 @@
       video        = document.querySelector('#video'),
       cover        = document.querySelector('#cover'),
       canvas       = document.querySelector('#canvas'),
-      photo        = document.querySelector('#photo'),
       startbutton  = document.querySelector('#startbutton'),
       width = 320,
       height = 0;
@@ -49,7 +48,7 @@
     canvas.height = height;
     canvas.getContext('2d').drawImage(video, 0, 0, width, height);
     var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
+    //photo.setAttribute('src', data);
     sendAjax("./recup_webcam.php", "POST", "data=" + data);
   }
 
