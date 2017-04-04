@@ -10,11 +10,21 @@
 ?>
 <div id="middle">
   <div id="main">
+  <div id="take_picture">
     <video id="video"></video>
     <canvas id="canvas"></canvas>
-    <img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
-      <button id="startbutton">Prendre une photo</button>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </div>
+    <img class="img_merge" src="image_to_merge/coeur.png">
+    <img class="img_merge" src="image_to_merge/fleur.png">
+    <img class="img_merge" src="image_to_merge/oiseaux.png">
+    <br/>
+  <div id="radio">
+        <input style="margin-right: 55px;" type="radio" name="filter" id="radio1" checked="checked" />
+        <input style="margin-left: 55px; margin-right: 55px;" type="radio" name="filter" id="radio2"/>
+        <input style="margin-left: 55px;" type="radio" name="filter" id="radio3"/>
+        <br/><br/>
+        <button id="startbutton">cheese</button>
+  </div>
     <script type="text/javascript" src="webcam.js"></script>
   </div>
   <div id="side">
